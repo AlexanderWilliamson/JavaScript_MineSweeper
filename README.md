@@ -3,7 +3,7 @@ Allows users to customize grid size, and mine probabilities.
 Provides automation levels that users can use to remove manually clicking obvious squares.  
 
 There are 3 seperate automation levels:  
-Level 0: No automation is done, this is the default  
+Level 0: No automation is done, this is the default.  
 Level 1: Squares that have a nearby value of 1 and have only 1 adjacent square that has not been revealed has that adjacent square automatically flagged.  
 Level 2: Squares that have a nearby value equal to the number of adjacent squares that have not been revealed has all adjacent squares that have not been revealed automatically flagged.  
    
