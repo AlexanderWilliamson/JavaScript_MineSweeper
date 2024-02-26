@@ -17,3 +17,36 @@
 	height: 25px;
 	width: 25px;
 }
+
+.enableflags{
+	margin: auto;
+	display:block;
+}
+
+.enableflagsimage{
+	border: 2px solid;
+	border-color: Gray;
+	height: 50px;
+	width: 50px;
+}
+
+aside{
+	background-color: lightblue;
+	padding: 5px;
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+
+#newgamebutton{
+	padding: 3px;
+}
+
+#wintext{
+	position: absolute;
+	height: 80px;
+	width: 240px;
+	top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+}

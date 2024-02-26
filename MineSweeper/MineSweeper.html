@@ -7,13 +7,15 @@
 </head>
 <body>
 	<p>Enter size of board</p>
-	
 	<label for = "width">Enter width:</label>
 	<input type = "text" id = "width" name = "width"><br><br>
 	<label for = "height">Enter height:</label>
 	<input type = "text" id = "height" name = "height"><br><br>
+	<label for = "automationlevel">Enter automation level, default is 0:</label>
+	<input type = "text" id = "automationlevel" name = "automationlevel"><br><br>
+	<label for = "mineprobability">Enter mine probability, decimal numbers from 0-1, default is 0.16</label>
+	<input type = "text" id = "mineprobability" name = "mineprobability"><br><br>
 	<button onclick = "constructgrid()">Submit</button>
 	<p id = "errorOccured"></p>
-	<p id = "test"></p>
 </body>
 </html>
