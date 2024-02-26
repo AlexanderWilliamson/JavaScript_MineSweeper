@@ -1,6 +1,6 @@
-Website Minesweeper, written in HTML, CSS, and JavaScript.
-Allows users to customize grid size, and mine probabilities.
-Provides automation levels that users can use to remove manually clicking obvious squares.
+Website Minesweeper, written in HTML, CSS, and JavaScript.  
+Allows users to customize grid size, and mine probabilities.  
+Provides automation levels that users can use to remove manually clicking obvious squares.  
 
 There are 3 seperate automation levels:  
 Level 0: No automation is done, this is the default  
