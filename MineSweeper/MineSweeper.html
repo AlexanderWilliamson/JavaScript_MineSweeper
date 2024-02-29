@@ -6,16 +6,16 @@
 	<link rel = "stylesheet" href = "StyleSheet.css">
 </head>
 <body>
-	<p>Enter size of board</p>
+	<p>Game Settings</p>
 	<label for = "width">Enter width:</label>
 	<input type = "text" id = "width" name = "width"><br><br>
 	<label for = "height">Enter height:</label>
 	<input type = "text" id = "height" name = "height"><br><br>
-	<label for = "automationlevel">Enter automation level, default is 0:</label>
+	<label for = "automationlevel">Enter automation level, default is <b>0</b>:</label>
 	<input type = "text" id = "automationlevel" name = "automationlevel"><br><br>
-	<label for = "mineprobability">Enter mine probability, decimal numbers from 0-1, default is 0.16</label>
+	<label for = "mineprobability">Enter mine probability, decimal numbers from <b>0-1</b>, default is <b>0.16</b></label>
 	<input type = "text" id = "mineprobability" name = "mineprobability"><br><br>
-	<button onclick = "constructgrid()">Submit</button>
+	<button onclick = "newGame()">New Game</button>
 	<p id = "errorOccured"></p>
 </body>
 </html>

@@ -26,8 +26,8 @@ function constructgrid(){
 	const id = document.getElementById("errorOccured");
 	const test = document.getElementById("test");
 	let width = 0, height = 0;
-	if (iWidth.length == 0 || iWidth.length > 3 || iHeight.length == 0 || iHeight.length > 3){
-		id.innerText = "Inputed Width and Height must be in the range of 1-3 characters";
+	if (iWidth.length > 3 || iHeight.length > 3){
+		id.innerText = "Inputed Width and Height cannot exceed 3 characters";
 		return;
 	} 
 	
@@ -74,8 +74,17 @@ function constructgrid(){
 	
 	if (iMineProbability.length != 0)
 		mineprobability = parseFloat(iMineProbability);
-	width = parseInt(iWidth);
-	height = parseInt(iHeight);
+	
+	if (iWidth.length == 0)
+		width = 20;
+	else
+		width = parseInt(iWidth);
+	
+	if (iHeight.length == 0)
+		height = 15;
+	else
+		height = parseInt(iHeight);
+	
 	if (width < 1 || height < 1 || width > 250 || height > 250){
 		id.innerText = "Width and Height must be within the bounds of 1-250";
 		return;
@@ -103,13 +112,6 @@ function constructgrid(){
 		}
 	}
 	
-	
-	const gameprompt = document.createElement("BUTTON");
-	gameprompt.innerText = "New Game";
-	gameprompt.id = "newgamebutton";
-	gameprompt.onclick = function() {newGame()};
-	document.body.appendChild(gameprompt);
-	
 	const aside = document.createElement("ASIDE");
 	const label = document.createElement("LABEL");
 	const flagbtn = document.createElement("IMG");
@@ -117,7 +119,7 @@ function constructgrid(){
 	flagbtn.onclick = function() {flagclicked()};
 	flagbtn.src = "Images/notplacingflag.jpg";
 	flagbtn.id = "flagbutton";
-	label.innerText = "Flags left: ?";
+	label.innerHTML = "Flags left: <b>?</b>";
 	label.className = "enableflags";
 	label.id = "flagbuttonlabel";
 	aside.id = "aside";
@@ -164,7 +166,7 @@ function clicked(r, c){
 		}
 		
 		if (!firstclick)
-			document.getElementById("flagbuttonlabel").innerText = "Flags left: " + totalFlags;
+			document.getElementById("flagbuttonlabel").innerHTML = "Flags left: <b>" + totalFlags + "</b>";
 		editSquare(r, c);
 		return;
 	}
@@ -212,7 +214,7 @@ function clicked(r, c){
 					grid[i][j].nearby += 1;
 			}
 		}
-		document.getElementById("flagbuttonlabel").innerText = "Flags left: " + totalFlags;
+		document.getElementById("flagbuttonlabel").innerHTML = "Flags left: <b>" + totalFlags + "</b>";
 	}
 	
 	if (grid[r][c].revealed || grid[r][c].flagged)
@@ -249,7 +251,7 @@ function clicked(r, c){
 	
 	if (automationlevel >= 1){
 		dadAutomation();
-		document.getElementById("flagbuttonlabel").innerText = "Flags left: " + totalFlags;
+		document.getElementById("flagbuttonlabel").innerHTML = "Flags left: <b>" + totalFlags + "</b>";
 	}
 	
 	if (unrevealedSquares == 0)
@@ -307,9 +309,10 @@ function gameWin(){
 }
 
 function newGame(){
-	document.getElementById("dadtable").remove();
-	document.getElementById("aside").remove();
-	document.getElementById("newgamebutton").remove();
+	if (document.getElementById("dadtable") != null)
+		document.getElementById("dadtable").remove();
+	if (document.getElementById("aside") != null)
+		document.getElementById("aside").remove();
 	if (document.getElementById("wintext") != null)
 		document.getElementById("wintext").remove();
 	grid = [];
@@ -322,10 +325,7 @@ function newGame(){
 	mineprobability = 0.16;
 	lockclicks = false;
 	gridconstructed = false;
-	document.getElementById("width").value = "";
-	document.getElementById("height").value = "";
-	document.getElementById("automationlevel").value = "";
-	document.getElementById("mineprobability").value = "";
+	constructgrid();
 }
 
 function dadAutomation(){
